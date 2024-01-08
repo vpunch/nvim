@@ -1,0 +1,13 @@
+require'config'
+require'plugins'
+
+require'plugins.gruvbox'
+require'plugins.telescope'
+require'plugins.cmp'
+require'plugins.lsp'
+require'plugins.treesitter'
+require'plugins.conform'
+require'plugins.bufferline'
+require'plugins.leap'
+require'plugins.vimspector'
+require'plugins.vimtex'
