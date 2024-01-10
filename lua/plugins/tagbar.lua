@@ -4,5 +4,5 @@ vim.g.tagbar_sort = 0
 
 vim.api.nvim_create_autocmd('VimEnter', {
   nested = true,
-  callback = function() call tagbar#autoopen(1) end
+  callback = function() vim.fn['tagbar#autoopen'](1) end
 })

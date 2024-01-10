@@ -1,4 +1,4 @@
-require('gruvbox').setup {
+require'gruvbox'.setup {
     overrides = {
         SignColumn = {bg = 'none'},
         GruvboxRedSign = { bg = 'NONE' },
