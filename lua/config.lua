@@ -25,7 +25,7 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 
 vim.opt.colorcolumn = { 72, 79 }
-vim.opt.cursorcolumn = true
+vim.opt.cursorcolumn = false
 vim.opt.signcolumn = 'yes'  -- лучше не скрывать, чтобы не дергался код
 
 vim.opt.textwidth = 0  -- неудобно, когда набирается не простой текст
@@ -56,7 +56,7 @@ vim.opt.listchars = {
   extends = '▸',
   precedes = '◂',
   multispace = ' ·',
-  leadmultispace = '    '
+  leadmultispace = '   │'
 }
 
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>>', { noremap = true })

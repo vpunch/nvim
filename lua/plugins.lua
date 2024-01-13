@@ -57,6 +57,7 @@ require'lazy'.setup {
   },
   -- Интеграция с форматерами
   { 'stevearc/conform.nvim', opts = {} },
+  -- Рендер маркдауна
   {
     'iamcco/markdown-preview.nvim',
     cmd = {
