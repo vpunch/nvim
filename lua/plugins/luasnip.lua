@@ -1,10 +1,8 @@
-luasnip = require'luasnip'
-
-luasnip.setup {
+require'luasnip'.setup {
   enable_autosnippets = true,
   store_selection_keys = '<Tab>'
 }
 
-luasnip.loaders.from_snipmate.lazy_load {
-  paths = { '~/.config/nvim/snippets' } 
+require'luasnip.loaders.from_snipmate'.lazy_load {
+  paths = { '~/.config/nvim/snippets' }
 }

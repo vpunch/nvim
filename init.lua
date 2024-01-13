@@ -1,5 +1,7 @@
 require'config'
-require'plugins'
+require'plugins.xkbswitch'
+
+require'plugman'
 
 require'plugins.gruvbox'
 require'plugins.telescope'

@@ -19,9 +19,11 @@
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
   "tagbar": { "branch": "master", "commit": "fcd31ec145bbc628b90371be381717a1498b7c12" },
   "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
+  "vim-graphql": { "branch": "master", "commit": "c1d6af3b93ec135e7e2fc182d4cae6cd0d9e20b1" },
   "vim-jinja2-syntax": { "branch": "master", "commit": "2c17843b074b06a835f88587e1023ceff7e2c7d1" },
   "vim-lama-syntax": { "branch": "main", "commit": "28821bfeb74c8dfa14984f49318404907a376b04" },
   "vim-promela-syntax": { "branch": "master", "commit": "57359653d18b24678680b755924ff4a1488cbaca" },
+  "vim-xkbswitch": { "branch": "master", "commit": "cba47eaec8931266c34c4ab1247abe04f3b7ef55" },
   "vimspector": { "branch": "master", "commit": "703df4d948957105fe056dec9b106fbebf25ca66" },
   "vimtex": { "branch": "master", "commit": "f9b19d09ee6f0ba70dad0b5c2e710dd700681000" }
 }

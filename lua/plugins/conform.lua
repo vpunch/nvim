@@ -1,14 +1,7 @@
 require'conform'.setup {
   formatters_by_ft = {
-    lua = { 'stylua' },
+    --lua = { 'stylua' },
     python = { 'ruff_fix', 'ruff_format' },  -- выполняются последовательно
-    javascript = { 'prettier' },
-  },
+    javascript = { 'prettier' }
+  }
 }
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*',
-  callback = function(args)
-    require'conform'.format { bufnr = args.buf }
-  end,
-})

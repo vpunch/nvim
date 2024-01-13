@@ -1,4 +1,4 @@
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath'data' .. '/lazy/lazy.nvim'
 
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -45,16 +45,11 @@ require'lazy'.setup {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
-      -- Должен соответствовать плагину снипетов
-      'saadparwaiz1/cmp_luasnip'
+      'saadparwaiz1/cmp_luasnip'  -- должен соответствовать плагину снипетов
     }
   },
   -- Снипеты
-  {
-    'L3MON4D3/LuaSnip',
-    version = 'v2.*',
-    build = 'make install_jsregexp'
-  },
+  { 'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp' },
   -- Интеграция с форматерами
   { 'stevearc/conform.nvim', opts = {} },
   -- Рендер маркдауна
@@ -75,10 +70,14 @@ require'lazy'.setup {
   { 'blyoa/vim-promela-syntax' },
   -- Jinja2
   { 'glench/vim-jinja2-syntax' },
-  -- 
+  -- GraphQL
+  { 'jparise/vim-graphql' },
+  -- Отображение буферов
   {
     'akinsho/bufferline.nvim',
     version = '*',
     dependencies = 'nvim-tree/nvim-web-devicons'
-  }
+  },
+  -- Автопереключение раскладки
+  { 'lyokha/vim-xkbswitch', tag = '0.20', lazy = false }
 }

@@ -1,9 +1,11 @@
-vim.opt.termguicolors = true
-vim.o.background = 'dark'
+local opt = vim.opt
+local g = vim.g
+
+opt.termguicolors = true
+opt.background = 'dark'
 
 vim.cmd'syntax on'  -- не работает с treesitter
-
-vim.g.vim_json_conceal = 0
+g.vim_json_conceal = 0
 
 -- Часто файлы имеют расширение .json
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
@@ -11,42 +13,50 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   callback = function() vim.b.filetype = 'jsonc' end
 })
 
-vim.opt.tabstop = 4
-vim.bo.softtabstop = 0
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'html,xml,typescriptreact,vim,lua',
+  callback = function(args)
+    vim.opt.tabstop = 2
+    vim.opt.shiftwidth = 2
+  end
+})
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 0
+opt.expandtab = true
 
-vim.opt.number = true
-vim.opt.relativenumber = false
+opt.hlsearch = true
+opt.incsearch = true
+opt.ignorecase = true
+opt.smartcase = true
 
-vim.opt.colorcolumn = { 72, 79 }
-vim.opt.cursorcolumn = false
-vim.opt.signcolumn = 'yes'  -- лучше не скрывать, чтобы не дергался код
+opt.number = true
+opt.relativenumber = false
 
-vim.opt.textwidth = 0  -- неудобно, когда набирается не простой текст
-vim.opt.wrap = true
-vim.opt.linebreak = false  -- перенос по словам, а не по символам
+opt.colorcolumn = { 72, 79 }
+opt.cursorcolumn = false
+opt.signcolumn = 'yes'  -- лучше не скрывать, чтобы не дергался код
 
-vim.opt.spelllang = 'en,ru'
-vim.opt.spellfile = '/home/vanya/.config/nvim/spell/dict.utf-8.add'
+opt.textwidth = 0  -- неудобно, когда набирается не простой текст
+opt.wrap = true
+opt.linebreak = false  -- перенос по словам приводит к очень рваному краю
 
-vim.g.mapleader = ','
-vim.opt.list = true
-vim.opt.showmode = true  -- показывать режим работы
-vim.opt.undofile = true
-vim.opt.shell = '/bin/bash'
-vim.opt.updatetime = 300
-vim.opt.mouse = ''
-vim.opt.equalalways = false
-vim.opt.backspace = { 'indent', 'eol', 'start' }  -- для работы по SSH
-vim.opt.conceallevel = 1
+opt.spelllang = 'en,ru'
+opt.spellfile = '/home/vanya/.config/nvim/spell/dict.utf-8.add'
 
-vim.opt.listchars = {
+g.mapleader = ','
+opt.list = true
+opt.showmode = true  -- почему нет
+opt.undofile = false  -- не удобно, когда нельзя откатить все изменения
+opt.shell = '/bin/bash'
+opt.updatetime = 300
+opt.mouse = ''
+opt.equalalways = false
+opt.backspace = { 'indent', 'eol', 'start' }  -- для работы по SSH
+opt.conceallevel = 1
+
+opt.listchars = {
   eol = '¬',
   space = ' ',
   lead = ' ',

@@ -17,10 +17,10 @@ lspconfig.pylsp.setup {
         mccabe = { enabled = false },
         flake8 = { enabled = false },
         pylint = { enabled = false },
-        yapf = { enabled = false },
-      },
-    },
-  },
+        yapf = { enabled = false }
+      }
+    }
+  }
 }
 
 lspconfig.denols.setup {
@@ -39,9 +39,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Срабатывает, когда языковой сервер присоединяется к текущему буферу
     -- omnifunc подключать нельзя, так как используется nvim-cmp
 
-    -- Buffer local mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
+
+    -- :help vim.lsp.*
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -62,14 +62,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>f', function()
       vim.lsp.buf.format { async = true }
     end, opts)
-  end,
+  end
 })
 
-vim.diagnostic.config({
-  virtual_text = false, -- уродская фигня
+vim.diagnostic.config {
+  virtual_text = false, -- не влезает со сплитом
   signs = true,
-  underline = true,  -- без этого не понятно, где в строке ошибка
-})
+  underline = true  -- без этого не понятно, где в строке ошибка
+}
 
 local signs = { Error = '☹', Warn = '😐'}
 for type, icon in pairs(signs) do
