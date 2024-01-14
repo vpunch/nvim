@@ -1,4 +1,4 @@
-require'gitsigns'.setup {
+require('gitsigns').setup {
   signcolumn = false,
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
@@ -9,6 +9,8 @@ require'gitsigns'.setup {
       vim.keymap.set(mode, l, r, opts)
     end
 
-    map('n', '<leader>hb', function() gs.blame_line { full = true } end)
-  end
+    map('n', '<leader>hb', function()
+      gs.blame_line { full = true }
+    end)
+  end,
 }

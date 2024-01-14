@@ -1,5 +1,6 @@
 require'config'
 require'plugins.xkbswitch'
+require'plugins.vimspector'
 
 require'plugman'
 
@@ -10,9 +11,9 @@ require'plugins.cmp'
 require'plugins.lsp'
 require'plugins.treesitter'
 require'plugins.conform'
+require'plugins.lint'
 require'plugins.bufferline'
 require'plugins.leap'
-require'plugins.vimspector'
 require'plugins.vimtex'
 require'plugins.tagbar'
 require'plugins.gitsigns'

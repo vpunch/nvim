@@ -1,7 +1,7 @@
-require'conform'.setup {
-  formatters_by_ft = {
-    --lua = { 'stylua' },
-    python = { 'ruff_fix', 'ruff_format' },  -- выполняются последовательно
-    javascript = { 'prettier' }
-  }
-}
+local conform = require 'conform'
+
+conform.setup { formatters_by_ft = require('project').formatters }
+
+vim.keymap.set('n', '<space>f', function()
+  conform.format { async = true, lsp_fallback = true }
+end)

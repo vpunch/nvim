@@ -1,30 +1,12 @@
-local lspconfig = require'lspconfig'
-
-local capabilities = require'cmp_nvim_lsp'.default_capabilities()
+local lspconfig = require 'lspconfig'
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lspconfig.pylsp.setup {
   capabilities = capabilities,
-  settings = {
-    pylsp = {
-      plugins = {
-        rope = { enabled = true },
-        ruff = { enabled = true },
-        mypy = { enabled = true },
-        isort = { enabled = false },
-        pycodestyle = { enabled = false },
-        pydocstyle = { enabled = false },
-        pyflakes = { enabled = false },
-        mccabe = { enabled = false },
-        flake8 = { enabled = false },
-        pylint = { enabled = false },
-        yapf = { enabled = false }
-      }
-    }
-  }
+  settings = { pylsp = { plugins = require('project').pylsp_plugins } },
 }
-
-lspconfig.denols.setup {
-  capabilities = capabilities
+lspconfig.tsserver.setup {
+  capabilities = capabilities,
 }
 
 -- :help vim.diagnostic.*
@@ -58,20 +40,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-
-    vim.keymap.set('n', '<space>f', function()
-      vim.lsp.buf.format { async = true }
-    end, opts)
-  end
+  end,
 })
 
 vim.diagnostic.config {
   virtual_text = false, -- не влезает со сплитом
   signs = true,
-  underline = true  -- без этого не понятно, где в строке ошибка
+  underline = true, -- без этого не понятно, где в строке ошибка
 }
 
-local signs = { Error = '☹', Warn = '😐'}
+local signs = { error = '☹', warn = '😐' }
+
 for type, icon in pairs(signs) do
   local hl = 'DiagnosticSign' .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })

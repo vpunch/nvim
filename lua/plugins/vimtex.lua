@@ -9,6 +9,6 @@ vim.g.vimtex_compiler_latexmk = {
     '-verbose',
     '-file-line-error',
     '-synctex=1',
-    '-interaction=nonstopmode'
-  }
+    '-interaction=nonstopmode',
+  },
 }

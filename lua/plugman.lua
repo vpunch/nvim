@@ -1,4 +1,4 @@
-local lazypath = vim.fn.stdpath'data' .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -13,7 +13,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require'lazy'.setup {
+require('lazy').setup {
   -- Тема
   { 'ellisonleao/gruvbox.nvim' },
   -- Перемещение
@@ -21,7 +21,7 @@ require'lazy'.setup {
   -- Синтаксис
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   -- Дебагинг
-  { 'puremourning/vimspector' },
+  { 'puremourning/vimspector', lazy = false },
   -- Список сущностей
   { 'preservim/tagbar' },
   -- Поддержка LaTeX (включает conceal)
@@ -30,7 +30,7 @@ require'lazy'.setup {
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    dependencies = { 'nvim-lua/plenary.nvim' },
   },
   -- Интеграция с гитом
   { 'lewis6991/gitsigns.nvim' },
@@ -39,29 +39,33 @@ require'lazy'.setup {
   -- Автодополнение
   {
     'hrsh7th/nvim-cmp',
-    event = { "InsertEnter", "CmdlineEnter" },
+    event = { 'InsertEnter', 'CmdlineEnter' },
     dependencies = {
-      'hrsh7th/cmp-nvim-lsp', 
+      'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
-      'saadparwaiz1/cmp_luasnip'  -- должен соответствовать плагину снипетов
-    }
+      'saadparwaiz1/cmp_luasnip', -- должен соответствовать плагину снипетов
+    },
   },
   -- Снипеты
   { 'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp' },
   -- Интеграция с форматерами
   { 'stevearc/conform.nvim', opts = {} },
+  -- Интеграция с линтерами
+  { 'mfussenegger/nvim-lint', event = { 'BufReadPre', 'BufNewFile' } },
   -- Рендер маркдауна
   {
     'iamcco/markdown-preview.nvim',
     cmd = {
       'MarkdownPreviewToggle',
       'MarkdownPreview',
-      'MarkdownPreviewStop'
+      'MarkdownPreviewStop',
     },
     ft = { 'markdown' },
-    build = function() vim.fn['mkdp#util#install']() end,
+    build = function()
+      vim.fn['mkdp#util#install']()
+    end,
   },
   -- Языки, которые не поддерживает treesitter
   -- Lama
@@ -76,8 +80,8 @@ require'lazy'.setup {
   {
     'akinsho/bufferline.nvim',
     version = '*',
-    dependencies = 'nvim-tree/nvim-web-devicons'
+    dependencies = 'nvim-tree/nvim-web-devicons',
   },
   -- Автопереключение раскладки
-  { 'lyokha/vim-xkbswitch', tag = '0.20', lazy = false }
+  { 'lyokha/vim-xkbswitch', tag = '0.20', lazy = false },
 }
