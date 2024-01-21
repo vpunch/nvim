@@ -14,27 +14,27 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
-  -- Тема
+  -- The classic theme
   { 'ellisonleao/gruvbox.nvim' },
-  -- Перемещение
+  -- To move the cursor quickly
   { 'ggandor/leap.nvim' },
-  -- Синтаксис
+  -- Syntax
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-  -- Дебагинг
+  -- Debugging
   { 'puremourning/vimspector', lazy = false },
-  -- Поддержка LaTeX (включает conceal)
+  -- LaTeX support (has conceal feature)
   { 'lervag/vimtex' },
-  -- Открытие файла по имени
+  -- To open files by name
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
-  -- Интеграция с гитом
+  -- Integration with Git
   { 'lewis6991/gitsigns.nvim' },
-  -- Интеграция с языковыми серверами
+  -- Integration with language servers
   { 'neovim/nvim-lspconfig' },
-  -- Автодополнение
+  -- Auto-completion
   {
     'hrsh7th/nvim-cmp',
     event = { 'InsertEnter', 'CmdlineEnter' },
@@ -43,29 +43,25 @@ require('lazy').setup {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
-      'saadparwaiz1/cmp_luasnip', -- должен соответствовать плагину снипетов
+      'saadparwaiz1/cmp_luasnip', -- must match the snippet plugin
     },
   },
-  -- Снипеты
+  -- Snippets
   { 'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp' },
-  -- Интеграция с форматерами
+  -- Integration with formatters
   { 'stevearc/conform.nvim', opts = {} },
-  -- Интеграция с линтерами
+  -- Integration with linters
   { 'mfussenegger/nvim-lint', event = { 'BufReadPre', 'BufNewFile' } },
-  -- Рендер маркдауна
+  -- Markdown rendering
   {
     'iamcco/markdown-preview.nvim',
-    cmd = {
-      'MarkdownPreviewToggle',
-      'MarkdownPreview',
-      'MarkdownPreviewStop',
-    },
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
     ft = { 'markdown' },
     build = function()
       vim.fn['mkdp#util#install']()
     end,
   },
-  -- Языки, которые не поддерживает treesitter
+  -- Languages that `nvim-treesitter` does not support
   -- Lama
   { 'vpunch/vim-lama-syntax' },
   -- Promela
@@ -74,15 +70,15 @@ require('lazy').setup {
   { 'glench/vim-jinja2-syntax' },
   -- GraphQL
   { 'jparise/vim-graphql' },
-  -- Отображение буферов
+  -- To display buffers
   {
     'akinsho/bufferline.nvim',
     version = '*',
     dependencies = 'nvim-tree/nvim-web-devicons',
   },
-  -- Автопереключение раскладки
+  -- Auto-switching a keyboard layout
   { 'lyokha/vim-xkbswitch', tag = '0.20', lazy = false },
-  -- Список сущностей
+  -- List of entities
   {
     'stevearc/aerial.nvim',
     opts = {},

@@ -8,7 +8,7 @@ require('telescope').setup {
       sort_mru = true,
       mappings = {
         i = {
-          ['<c-d>'] = 'delete_buffer',
+          ['<C-d>'] = 'delete_buffer',
         },
       },
     },
@@ -18,8 +18,8 @@ require('telescope').setup {
 local keymap = vim.keymap
 local builtin = require 'telescope.builtin'
 
--- Поиск файла
-keymap.set('n', '<leader>ff', builtin.find_files, {}) -- по имени
-keymap.set('n', '<leader>fg', builtin.live_grep, {}) -- с указанным текстом
--- Поиск буфера по имени
+-- Search for files
+keymap.set('n', '<leader>ff', builtin.find_files, {}) -- by name
+keymap.set('n', '<leader>fg', builtin.live_grep, {}) -- with the specified text
+-- Searching for a buffer by name
 keymap.set('n', '<leader>fb', builtin.buffers, {})

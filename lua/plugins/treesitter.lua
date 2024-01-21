@@ -1,22 +1,23 @@
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { -- список парсеров
+  ensure_installed = { -- list of parsers
     'lua',
-    'css',
     'python',
-    -- Вим
-    'vim',
-    'vimdoc',
-    -- Си
-    'c',
-    'cpp',
-    'qmljs',
-    'javascript', -- есть поддержка jsx
-    'typescript',
-    'tsx',
-    'html', -- есть поддержка jinja2, но только для html
     'markdown',
     'dockerfile',
     'java',
+    -- Vim
+    'vim',
+    'vimdoc',
+    -- C
+    'c',
+    'cpp',
+    'qmljs',
+    -- JS
+    'javascript', -- has JSX support
+    'typescript',
+    'tsx',
+    'css',
+    'html', -- has Jinja2 support but only for HTML files
     'xml',
   },
   -- Install parsers synchronously (only applied to `ensure_installed`)

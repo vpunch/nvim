@@ -16,10 +16,11 @@ local pylsp_plugins = {
 local linters = {
   javascript = { 'eslint_d' },
   typescript = { 'eslint_d' },
-  javascriptreact = { 'eslint_d' },
-  typescriptreact = { 'eslint_d' },
+  javascriptreact = { 'eslint_d', 'stylelint' },
+  typescriptreact = { 'eslint_d', 'stylelint' },
   css = { 'stylelint' },
-  html = { 'eslint_d' },
+  html = { 'eslint_d', 'stylelint' },
+  json = { 'eslint_d' },
   jsonc = { 'eslint_d' },
 }
 
@@ -32,16 +33,29 @@ local formatters = {
   typescriptreact = { 'prettierd' },
   css = { 'prettierd' },
   html = { 'prettierd' },
+  json = { 'prettierd' },
   jsonc = { 'prettierd' },
   yaml = { 'prettierd' },
   markdown = { 'prettierd' },
   graphql = { 'prettierd' },
 }
 
+local short_tab_exts = {
+  'lua',
+  'javascript',
+  'typescript',
+  'javascriptreact',
+  'typescriptreact',
+  'html',
+  'xml',
+  'vim',
+}
+
 local config = {
   pylsp_plugins = pylsp_plugins,
   linters = linters,
   formatters = formatters,
+  short_tab_exts = short_tab_exts,
 }
 require('project.patch').patch(config)
 

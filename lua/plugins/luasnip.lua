@@ -4,5 +4,5 @@ require('luasnip').setup {
 }
 
 require('luasnip.loaders.from_snipmate').lazy_load {
-  paths = { '/home/vanya/.config/nvim/snippets' },
+  paths = { vim.env.HOME .. '/.config/nvim/snippets' },
 }

@@ -7,7 +7,7 @@ Simple Neovim configuration for programming and more
 Run this:
 
 ```
-$ cd ~/.config && git clone 
+$ cd ~/.config && git clone
 $ cp nvim/patch.lua nvim/lua/project/
 ```
 
@@ -15,16 +15,24 @@ $ cp nvim/patch.lua nvim/lua/project/
 
 If you are ArchLinux user, you may need the following packages:
 
-- stylua
-- prettierd (AUR)
-- ripgrep
-- ttf-jetbrains-mono-nerd*
-- python-pynvim
-- neovim
-- wezterm*
-- 
+- `neovim`
+- `python-pynvim`
+- `wezterm`\*
+- `python-lsp-server`
+- `python-rope`
+- `python-lsp-ruff` (AUR)
+- `python-pylsp-mypy`
+- `typescript-language-server`
+- `eslint_d` (AUR)
+- `prettierd` (AUR)
+- `stylua`
+- `stylelint`
+- `ripgrep`
+- `ttf-jetbrains-mono-nerd`\*
+- `noto-fonts-emoji`\*
+- `khaser/sway-vim-kbswitch` (GitHub)\*
 
-\* -- recommended
+\* -- or some alternative
 
 ## Configuration
 
@@ -36,25 +44,28 @@ this is not the case, then add `term = 'wezterm'` to the config file.
 
 ## Some commands and shortcuts
 
-| | |
-|---|---|
-| `:set [no]spell` | |
-| `:set [no]paste` | Insert without auto-indentation |
-| `C-g` | File length |
-| `\ll` | |
-| `\lv` | |
-| `<space>e` | |
-| `[d` / `]d` | |
-| `<space>q` | |
-| `gD` | |
-| `gd` | |
-| `gi` | |
-| `K` | |
-| `<C-s>` | |
-| `<space>wa` | |
-| `<space>wr` | |
-| `<space>D` | |
-| `<space>rn` | |
-| `<space>ca` | |
-| `<space>wl` | |
-| `<space>D` | |
+|                     | Description                       |
+| ------------------- | --------------------------------- |
+| `<C-l>`             | Increase the split size           |
+| `<C-h>`             | Decrease the split size           |
+| `<C-d>`             | Delete a buffer in Telescope      |
+| `<Tab>` / `<S-Tab>` | Navigation in the completion menu |
+| `<C-e>`             | Close the completion menu         |
+| `<CR>`              | Accept the completion             |
+| `<leader>a`         | Open the list of entities         |
+| `:set [no]spell`    |                                   |
+| `:set [no]paste`    | Insert without auto-indentation   |
+| `C-g`               | File length                       |
+| `\ll`               |                                   |
+| `\lv`               |                                   |
+| `<space>e`          |                                   |
+| `[d` / `]d`         |                                   |
+| `<space>q`          |                                   |
+| `gD`                |                                   |
+| `gd`                |                                   |
+| `gi`                |                                   |
+| `K`                 |                                   |
+| `<C-s>`             |                                   |
+| `<space>D`          |                                   |
+| `<space>rn`         |                                   |
+| `gr`                |                                   |
