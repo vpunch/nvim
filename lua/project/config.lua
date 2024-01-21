@@ -12,17 +12,20 @@ local pylsp_plugins = {
   yapf = { enabled = false },
 }
 
+-- https://github.com/mfussenegger/nvim-lint/issues/180
 local linters = {
   javascript = { 'eslint_d' },
   typescript = { 'eslint_d' },
   javascriptreact = { 'eslint_d' },
   typescriptreact = { 'eslint_d' },
   css = { 'stylelint' },
+  html = { 'eslint_d' },
+  jsonc = { 'eslint_d' },
 }
 
 local formatters = {
   lua = { 'stylua' },
-  python = { 'ruff_fix', 'ruff_format' }, -- выполняются последовательно
+  python = { 'ruff_fix', 'ruff_format' }, -- executed sequentially
   javascript = { 'prettierd' },
   typescript = { 'prettierd' },
   javascriptreact = { 'prettierd' },
@@ -35,28 +38,11 @@ local formatters = {
   graphql = { 'prettierd' },
 }
 
-local cwd = vim.fn.getcwd(-1, -1)
-
-if cwd == '/home/vanya/mycore/mashtab/zenator/repo/core-base' then
-  pylsp_plugins.ruff.enabled = false
-  pylsp_plugins.isort.enabled = true
-  pylsp_plugins.pycodestyle.enabled = true
-  pylsp_plugins.flake8.enabled = true
-  pylsp_plugins.yapf.enabled = true
-
-  formatters.python = { 'yapf', 'isort' }
-elseif cwd == '/home/vanya/mycore/mashtab/zenator/repo/web-api' then
-  formatters.javascript = { 'eslint_d' }
-  formatters.typescript = { 'eslint_d' }
-  formatters.javascriptreact = { 'eslint_d' }
-  formatters.typescriptreact = { 'eslint_d' }
-  formatters.css = { 'stylelint' }
-  formatters.html = { 'eslint_d' }
-  formatters.jsonc = { 'eslint_d' }
-end
-
-return {
+local config = {
   pylsp_plugins = pylsp_plugins,
-  formatters = formatters,
   linters = linters,
+  formatters = formatters,
 }
+require('project.patch').patch(config)
+
+return config

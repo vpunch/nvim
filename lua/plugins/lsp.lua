@@ -1,9 +1,13 @@
 local lspconfig = require 'lspconfig'
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lspconfig.pylsp.setup {
   capabilities = capabilities,
-  settings = { pylsp = { plugins = require('project').pylsp_plugins } },
+  --on_attach = function(client, bufnr)
+  --  require "lsp_signature".on_attach()
+  --end,
+  settings = { pylsp = { plugins = require('project.config').pylsp_plugins } },
 }
 lspconfig.tsserver.setup {
   capabilities = capabilities,
@@ -15,30 +19,23 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
+-- A language server is attached to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
-    -- Срабатывает, когда языковой сервер присоединяется к текущему буферу
-    -- omnifunc подключать нельзя, так как используется nvim-cmp
+    -- omnifunc cannot be used because nvim-cmp is used
 
     local opts = { buffer = ev.buf }
 
     -- :help vim.lsp.*
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-
-    vim.keymap.set('n', '<space>wl', function()
-      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, opts)
-
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    -- 'ray-x/lsp_signature.nvim' works with a bunch of errors
+    vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
   end,
 })
@@ -49,7 +46,7 @@ vim.diagnostic.config {
   underline = true, -- без этого не понятно, где в строке ошибка
 }
 
-local signs = { error = '☹', warn = '😐' }
+local signs = { Error = '😡', Warn = '🤔', Info = '🤖'}
 
 for type, icon in pairs(signs) do
   local hl = 'DiagnosticSign' .. type

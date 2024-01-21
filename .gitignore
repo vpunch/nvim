@@ -1,2 +1,3 @@
 spell/*
 !spell/dict.*
+project/patch.lua

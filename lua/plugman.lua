@@ -22,8 +22,6 @@ require('lazy').setup {
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
   -- Дебагинг
   { 'puremourning/vimspector', lazy = false },
-  -- Список сущностей
-  { 'preservim/tagbar' },
   -- Поддержка LaTeX (включает conceal)
   { 'lervag/vimtex' },
   -- Открытие файла по имени
@@ -84,4 +82,13 @@ require('lazy').setup {
   },
   -- Автопереключение раскладки
   { 'lyokha/vim-xkbswitch', tag = '0.20', lazy = false },
+  -- Список сущностей
+  {
+    'stevearc/aerial.nvim',
+    opts = {},
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
 }
