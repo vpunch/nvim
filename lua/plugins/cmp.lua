@@ -2,7 +2,8 @@ local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
 local has_words_before = function()
-  local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 
   return (
     col ~= 0
