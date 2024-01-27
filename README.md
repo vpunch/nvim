@@ -70,4 +70,4 @@ it.
 | `<space>D`          | Go to the type definition                       |
 | `<space>rn`         | Rename the entity under the cursor              |
 | `gr`                | Show references to the entity under the cursor  |
-| '<space>f'          | Format the working buffer                       |
+| `<space>f`          | Format the working buffer                       |
