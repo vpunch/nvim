@@ -5,8 +5,12 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 lspconfig.pylsp.setup {
   capabilities = capabilities,
   settings = { pylsp = { plugins = require('project.config').pylsp_plugins } },
+  cmd = { 'pylsp', '-vv' },
 }
 lspconfig.tsserver.setup {
+  capabilities = capabilities,
+}
+lspconfig.ccls.setup {
   capabilities = capabilities,
 }
 
@@ -51,3 +55,5 @@ for type, icon in pairs(signs) do
   local hl = 'DiagnosticSign' .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+vim.lsp.set_log_level 'debug'

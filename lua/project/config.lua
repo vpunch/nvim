@@ -14,6 +14,7 @@ local pylsp_plugins = {
 
 -- https://github.com/mfussenegger/nvim-lint/issues/180
 local linters = {
+  --python = { 'ruff' },
   javascript = { 'eslint_d' },
   typescript = { 'eslint_d' },
   javascriptreact = { 'eslint_d', 'stylelint' },
@@ -22,6 +23,8 @@ local linters = {
   html = { 'eslint_d', 'stylelint' },
   json = { 'eslint_d' },
   jsonc = { 'eslint_d' },
+  tex = { 'chktex' },
+  --c = { 'clangtidy' },
 }
 
 local formatters = {
@@ -38,6 +41,7 @@ local formatters = {
   yaml = { 'prettierd' },
   markdown = { 'prettierd' },
   graphql = { 'prettierd' },
+  --c = { 'clang_format' },
 }
 
 local short_tab_exts = {

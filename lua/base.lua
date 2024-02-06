@@ -37,7 +37,7 @@ opt.smartcase = true
 opt.number = true
 opt.relativenumber = false
 
-opt.colorcolumn = { 72, 79 }
+opt.colorcolumn = { 72, 79, 88 }
 opt.cursorcolumn = false
 opt.signcolumn = 'yes' -- the code stops twitching
 
