@@ -48,7 +48,7 @@ opt.linebreak = false -- a very ragged edge looks bad
 opt.spelllang = 'en,ru'
 opt.spellfile = vim.env.HOME .. '/.config/nvim/spell/dict.utf-8.add'
 
-g.mapleader = ','
+g.mapleader = 'm'
 opt.list = true
 opt.showmode = true -- why not
 opt.undofile = false -- so that you can undo all changes
