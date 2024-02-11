@@ -72,3 +72,5 @@ it.
 | `gr`                | Show references to the entity under the cursor  |
 | `<space>f`          | Format the working buffer                       |
 | `<leader>hb`        | Show the author of the line under the cursor    |
+| `<leader>ff`        | Find any files    |
+| `<leader>fg`        | Displays matches for all files in the directory     |
