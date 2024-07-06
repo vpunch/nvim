@@ -87,4 +87,14 @@ require('lazy').setup {
       'nvim-tree/nvim-web-devicons',
     },
   },
+  {
+    'onsails/lspkind.nvim',
+  },
+  {
+    'Exafunction/codeium.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'hrsh7th/nvim-cmp',
+    },
+  },
 }

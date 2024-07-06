@@ -15,7 +15,17 @@ local has_words_before = function()
   )
 end
 
+local lspkind = require 'lspkind'
+
 cmp.setup {
+  formatting = {
+    format = require('lspkind').cmp_format {
+      mode = 'symbol',
+      maxwidth = 50,
+      ellipsis_char = '...',
+      symbol_map = { Codeium = '' },
+    },
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -52,6 +62,7 @@ cmp.setup {
   sources = cmp.config.sources {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'codeium' },
   },
   {
     { name = 'buffer' },
