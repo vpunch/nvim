@@ -14,7 +14,6 @@ local pylsp_plugins = {
 
 -- https://github.com/mfussenegger/nvim-lint/issues/180
 local linters = {
-  --python = { 'ruff' },
   javascript = { 'eslint_d' },
   typescript = { 'eslint_d' },
   javascriptreact = { 'eslint_d', 'stylelint' },
@@ -24,11 +23,11 @@ local linters = {
   json = { 'eslint_d' },
   jsonc = { 'eslint_d' },
   tex = { 'chktex' },
-  --c = { 'clangtidy' },
 }
 
 local formatters = {
   lua = { 'stylua' },
+  -- The plugin for `pylsp` supports formatting, but does not run `ruff --fix`
   python = { 'ruff_fix', 'ruff_format' }, -- executed sequentially
   javascript = { 'prettierd' },
   typescript = { 'prettierd' },
@@ -41,7 +40,6 @@ local formatters = {
   yaml = { 'prettierd' },
   markdown = { 'prettierd' },
   graphql = { 'prettierd' },
-  --c = { 'clang_format' },
 }
 
 local short_tab_exts = {
