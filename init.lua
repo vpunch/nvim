@@ -1,9 +1,7 @@
 require 'base'
+require 'plugman'
 require 'plugins.xkbswitch'
 require 'plugins.vimspector'
-
-require 'plugman'
-
 require 'plugins.gruvbox'
 require 'plugins.telescope'
 require 'plugins.luasnip'
