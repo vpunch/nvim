@@ -22,10 +22,12 @@ local linters = {
   html = { 'eslint_d', 'stylelint' },
   json = { 'eslint_d' },
   jsonc = { 'eslint_d' },
+  tex = { 'chktex' },
 }
 
 local formatters = {
   lua = { 'stylua' },
+  -- The plugin for `pylsp` supports formatting, but does not run `ruff --fix`
   python = { 'ruff_fix', 'ruff_format' }, -- executed sequentially
   javascript = { 'prettierd' },
   typescript = { 'prettierd' },

@@ -25,6 +25,8 @@ If you are ArchLinux user, you may need the following packages:
 - `typescript-language-server`
 - `eslint_d` (AUR)
 - `prettierd` (AUR)
+- `ccls`
+- `clang`
 - `stylua`
 - `stylelint`
 - `ripgrep`

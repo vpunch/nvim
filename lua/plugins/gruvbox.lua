@@ -1,6 +1,7 @@
 require('gruvbox').setup {
   transparent_mode = false,
   overrides = {
+    NormalFloat = { bg = 'None' },
     SignColumn = { bg = 'None' },
     GruvboxRedSign = { bg = 'None' },
     GruvboxYellowSign = { bg = 'None' },
